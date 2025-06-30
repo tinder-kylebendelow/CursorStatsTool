@@ -119,9 +119,12 @@ struct ContentView: View {
             handleFileSelection(result)
         }
         .sheet(isPresented: $showingExportSheet) {
-            SuccessfulExportSheet(exportedFilePaths: exportedFilePaths, showingExportSheet: $showingExportSheet)
-            .padding(40)
-            .frame(width: 500, height: 350)
+            SuccessfulExportDialog(
+                exportedFilePaths: exportedFilePaths,
+                onDismiss: {
+                    showingExportSheet = false
+                }
+            )
         }
     }
     
