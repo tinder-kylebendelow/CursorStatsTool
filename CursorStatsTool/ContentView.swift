@@ -29,48 +29,19 @@ struct ContentView: View {
                 .foregroundColor(.secondary)
             
             // Drag and drop area
-            ZStack {
-                RoundedRectangle(cornerRadius: 12)
-                    .fill(dragOver ? Color.blue.opacity(0.1) : Color.gray.opacity(0.1))
-                    .stroke(dragOver ? Color.blue : Color.gray, style: StrokeStyle(lineWidth: 2, dash: [5]))
-                    .frame(height: 200)
-                
-                VStack {
-                    Image(systemName: "doc.text")
-                        .font(.system(size: 50))
-                        .foregroundColor(dragOver ? .blue : .gray)
-                    
-                    Text("Drop CSV file here")
-                        .font(.title2)
-                        .foregroundColor(dragOver ? .blue : .gray)
-                    
-                    Text("or click to select")
-                        .font(.caption)
-                        .foregroundColor(.secondary)
+            CSVDropArea(
+                dragOver: $dragOver,
+                onTap: selectFile,
+                onDrop: { providers in
+                    handleDrop(providers: providers)
+                    return true
                 }
-            }
-            .onTapGesture {
-                selectFile()
-            }
-            .onDrop(of: [UTType.commaSeparatedText], isTargeted: $dragOver) { providers in
-                handleDrop(providers: providers)
-                return true
-            }
+            )
             
             // File info
-            if !csvData.isEmpty {
-                VStack(alignment: .leading, spacing: 8) {
-                    Text("Loaded CSV:")
-                        .font(.headline)
-                    
-                    Text("• Total rows: \(csvData.count)")
-                    Text("• Swift extension rows: \(csvData.filter { $0.isSwiftExtension }.count)")
-                    Text("• Unique users: \(Set(csvData.filter { $0.isSwiftExtension }.map { $0.email }).count)")
-                }
-                .padding()
-                .background(Color.gray.opacity(0.1))
-                .cornerRadius(8)
-            }
+            HighLevelStatsView(
+                csvData: csvData
+            )
             
             // Process button
             if !csvData.isEmpty {
@@ -102,11 +73,9 @@ struct ContentView: View {
                         .cornerRadius(8)
                 }
             }
-            
-            Toggle("Only include @gotinder.com emails", isOn: $filterTinderEmails)
-                .toggleStyle(CheckboxToggleStyle())
-                .padding(.bottom, 8)
-            
+            TinderFilterToggle(
+                isTinderFilterEnabled: $filterTinderEmails
+            )
             Spacer()
         }
         .padding()

@@ -49,4 +49,8 @@ struct CSVRow {
 
         return applyExtension.lowercased() == "swift" || tabExtension.lowercased() == "swift"
     }
+    
+    var isKotlinExtension: Bool {
+        return matchesExtension("kotlin")
+    }
 }
