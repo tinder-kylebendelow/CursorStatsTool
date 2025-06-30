@@ -119,34 +119,7 @@ struct ContentView: View {
             handleFileSelection(result)
         }
         .sheet(isPresented: $showingExportSheet) {
-            VStack(spacing: 20) {
-                Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 50))
-                    .foregroundColor(.green)
-                
-                Text("Export Successful!")
-                    .font(.title)
-                    .fontWeight(.bold)
-                
-                Text("Your processed CSV files have been saved:")
-                    .font(.body)
-                    .foregroundColor(.secondary)
-                
-                ForEach(exportedFilePaths, id: \ .self) { path in
-                    Text(path)
-                        .font(.caption)
-                        .foregroundColor(.secondary)
-                        .multilineTextAlignment(.center)
-                }
-                
-                Button("OK") {
-                    showingExportSheet = false
-                }
-                .padding()
-                .background(Color.blue)
-                .foregroundColor(.white)
-                .cornerRadius(8)
-            }
+            SuccessfulExportSheet(exportedFilePaths: exportedFilePaths, showingExportSheet: $showingExportSheet)
             .padding(40)
             .frame(width: 500, height: 350)
         }
@@ -192,66 +165,24 @@ struct ContentView: View {
     private func loadCSV(from url: URL) {
         do {
             let content = try String(contentsOf: url)
-            csvData = parseCSV(content)
+            let parser = CSVParser()
+            csvData = parser.parseCSV(content)
         } catch {
             print("Error loading CSV: \(error)")
         }
-    }
-    
-    private func parseCSV(_ content: String) -> [CSVRow] {
-        let lines = content.components(separatedBy: .newlines)
-        guard lines.count > 1 else { return [] }
-        
-        let headers = lines[0].components(separatedBy: ",")
-        var rows: [CSVRow] = []
-        
-        for i in 1..<lines.count {
-            let line = lines[i].trimmingCharacters(in: .whitespacesAndNewlines)
-            if line.isEmpty { continue }
-            
-            let values = parseCSVLine(line)
-            if values.count >= headers.count {
-                let row = CSVRow(headers: headers, values: values)
-                rows.append(row)
-            }
-        }
-        
-        return rows
-    }
-    
-    private func parseCSVLine(_ line: String) -> [String] {
-        var values: [String] = []
-        var currentValue = ""
-        var insideQuotes = false
-        
-        for char in line {
-            if char == "\"" {
-                insideQuotes.toggle()
-            } else if char == "," && !insideQuotes {
-                values.append(currentValue.trimmingCharacters(in: .whitespaces))
-                currentValue = ""
-            } else {
-                currentValue.append(char)
-            }
-        }
-        
-        values.append(currentValue.trimmingCharacters(in: .whitespaces))
-        return values
     }
     
     private func processData() {
         isProcessing = true
         
         DispatchQueue.global(qos: .userInitiated).async {
+            let exporter = CSVExporter()
             // For preview, just show iOS (Swift) data in the UI
-            var filteredRows = csvData.filter { $0.matchesExtension("swift") }
-            if filterTinderEmails {
-                filteredRows = filteredRows.filter { $0.email.lowercased().hasSuffix("@gotinder.com") }
-            }
-            let groupedData = Dictionary(grouping: filteredRows) { $0.email }
-            let mergedData = groupedData.map { email, rows in
-                mergeRows(rows, email: email)
-            }
+            let mergedData = exporter.processDataForPreview(
+                csvData: csvData,
+                extensionName: "swift",
+                filterTinderEmails: filterTinderEmails
+            )
             DispatchQueue.main.async {
                 processedData = mergedData
                 isProcessing = false
@@ -259,59 +190,7 @@ struct ContentView: View {
         }
     }
     
-    private func mergeRows(_ rows: [CSVRow], email: String) -> CSVRow {
-        guard let firstRow = rows.first else { return CSVRow() }
-        
-        var mergedValues = firstRow.values
-        let headers = firstRow.headers
-        
-        // Sum numeric columns for all rows with the same email
-        for i in 0..<headers.count {
-            if isNumericColumn(headers[i]) {
-                let sum = rows.compactMap { row in
-                    Int(row.values[i])
-                }.reduce(0, +)
-                mergedValues[i] = String(sum)
-            } else if headers[i] == "Email" {
-                mergedValues[i] = email
-            } else if headers[i] == "User ID" {
-                mergedValues[i] = firstRow.values[i] // Keep first user ID
-            } else if headers[i] == "Date" {
-                mergedValues[i] = "Merged" // Indicate this is merged data
-            } else {
-                // For non-numeric columns, keep the first non-empty value
-                let nonEmptyValues = rows.compactMap { row in
-                    let value = row.values[i]
-                    return value.isEmpty ? nil : value
-                }
-                mergedValues[i] = nonEmptyValues.first ?? ""
-            }
-        }
-        
-        return CSVRow(headers: headers, values: mergedValues)
-    }
-    
-    private func isNumericColumn(_ header: String) -> Bool {
-        let numericHeaders = [
-            "Chat Suggested Lines Added",
-            "Chat Suggested Lines Deleted",
-            "Chat Accepted Lines Added",
-            "Chat Accepted Lines Deleted",
-            "Chat Total Applies",
-            "Chat Total Accepts",
-            "Chat Total Rejects",
-            "Chat Tabs Shown",
-            "Tabs Accepted",
-            "Edit Requests",
-            "Ask Requests",
-            "Agent Requests",
-            "Cmd+K Usages",
-            "Subscription Included Reqs",
-            "Usage Based Reqs",
-            "Bugbot Usages"
-        ]
-        return numericHeaders.contains(header)
-    }
+
     
     private func exportData() {
         let panel = NSOpenPanel()

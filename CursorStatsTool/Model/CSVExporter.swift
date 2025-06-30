@@ -1,10 +1,3 @@
-//
-//  CSVExporter.swift
-//  CursorStatsTool
-//
-//  Created by Kyle Bendelow on 6/30/25.
-//
-
 import Foundation
 
 class CSVExporter {
@@ -22,7 +15,7 @@ class CSVExporter {
         }
         let groupedData = Dictionary(grouping: filteredRows) { $0.email }
         let mergedData = groupedData.map { email, rows in
-            mergeRows(rows)
+            mergeRows(rows, email: email)
         }
         
         guard !mergedData.isEmpty else { return }
@@ -63,38 +56,52 @@ class CSVExporter {
         }
     }
     
-    private func mergeRows(_ rows: [CSVRow]) -> CSVRow {
-        guard let firstRow = rows.first else {
-            return CSVRow(headers: [], values: [])
+    func processDataForPreview(
+        csvData: [CSVRow],
+        extensionName: String,
+        filterTinderEmails: Bool
+    ) -> [CSVRow] {
+        var filteredRows = csvData.filter { $0.matchesExtension(extensionName) }
+        if filterTinderEmails {
+            filteredRows = filteredRows.filter { $0.email.lowercased().hasSuffix("@gotinder.com") }
         }
-        
-        if rows.count == 1 {
-            return firstRow
+        let groupedData = Dictionary(grouping: filteredRows) { $0.email }
+        let mergedData = groupedData.map { email, rows in
+            mergeRows(rows, email: email)
         }
+        return mergedData
+    }
+    
+    private func mergeRows(_ rows: [CSVRow], email: String) -> CSVRow {
+        guard let firstRow = rows.first else { return CSVRow() }
         
         var mergedValues = firstRow.values
+        let headers = firstRow.headers
         
-        for i in 0..<firstRow.headers.count {
-            let header = firstRow.headers[i]
-            
-            if isNumericColumn(header) {
+        // Sum numeric columns for all rows with the same email
+        for i in 0..<headers.count {
+            if isNumericColumn(headers[i]) {
                 let sum = rows.compactMap { row in
-                    guard i < row.values.count else { return 0 }
-                    return Int(row.values[i])
+                    Int(row.values[i])
                 }.reduce(0, +)
                 mergedValues[i] = String(sum)
+            } else if headers[i] == "Email" {
+                mergedValues[i] = email
+            } else if headers[i] == "User ID" {
+                mergedValues[i] = firstRow.values[i] // Keep first user ID
+            } else if headers[i] == "Date" {
+                mergedValues[i] = "Merged" // Indicate this is merged data
             } else {
                 // For non-numeric columns, keep the first non-empty value
-                for row in rows {
-                    if i < row.values.count && !row.values[i].isEmpty {
-                        mergedValues[i] = row.values[i]
-                        break
-                    }
+                let nonEmptyValues = rows.compactMap { row in
+                    let value = row.values[i]
+                    return value.isEmpty ? nil : value
                 }
+                mergedValues[i] = nonEmptyValues.first ?? ""
             }
         }
         
-        return CSVRow(headers: firstRow.headers, values: mergedValues)
+        return CSVRow(headers: headers, values: mergedValues)
     }
     
     private func isNumericColumn(_ header: String) -> Bool {
