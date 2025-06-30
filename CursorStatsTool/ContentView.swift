@@ -13,22 +13,16 @@ struct ContentView: View {
     @State private var processedData: [CSVRow] = []
     @State private var isProcessing = false
     @State private var showingExportSheet = false
-    @State private var exportURL: URL?
+
     @State private var dragOver = false
     @State private var filterTinderEmails = true
     @State private var exportedFilePaths: [String] = []
 
     var body: some View {
         VStack(spacing: 20) {
-            Text("Cursor Stats CSV Processor")
-                .font(.largeTitle)
-                .fontWeight(.bold)
-            
-            Text("Drag and drop a CSV file to process")
-                .font(.headline)
-                .foregroundColor(.secondary)
-            
-            // Drag and drop area
+            titleView
+            subtitleView
+
             CSVDropArea(
                 dragOver: $dragOver,
                 onTap: selectFile,
@@ -37,41 +31,17 @@ struct ContentView: View {
                     return true
                 }
             )
-            
-            // File info
+
             HighLevelStatsView(
                 csvData: csvData
             )
             
-            // Process button
             if !csvData.isEmpty {
-                Button(action: processData) {
-                    HStack {
-                        if isProcessing {
-                            ProgressView()
-                                .scaleEffect(0.8)
-                        }
-                        Text(isProcessing ? "Processing..." : "Process Data")
-                    }
-                    .frame(maxWidth: .infinity)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
-                    .cornerRadius(8)
-                }
-                .disabled(isProcessing)
+                processFileButton
             }
             
-            // Export button
             if !processedData.isEmpty {
-                Button(action: exportData) {
-                    Text("Export Processed CSV")
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(Color.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
-                }
+                exportFilesButton
             }
             TinderFilterToggle(
                 isTinderFilterEnabled: $filterTinderEmails
@@ -146,7 +116,7 @@ struct ContentView: View {
     
     private func processData() {
         isProcessing = true
-        
+
         DispatchQueue.global(qos: .userInitiated).async {
             let exporter = CSVExporter()
             // For preview, just show iOS (Swift) data in the UI
@@ -161,24 +131,60 @@ struct ContentView: View {
             }
         }
     }
-    
 
-    
     private func exportData() {
-        let panel = NSOpenPanel()
-        panel.canChooseDirectories = true
-        panel.canChooseFiles = false
-        panel.allowsMultipleSelection = false
-        panel.prompt = "Select Folder"
-        if panel.runModal() == .OK, let directoryURL = panel.url {
-            let iosURL = directoryURL.appendingPathComponent("iOS_cursor_stats.csv")
-            let androidURL = directoryURL.appendingPathComponent("android_cursor_stats.csv")
-            let exporter = CSVExporter()
-            exporter.export(csvData: csvData, extensionName: "swift", filterTinderEmails: filterTinderEmails, url: iosURL)
-            exporter.export(csvData: csvData, extensionName: "kotlin", filterTinderEmails: filterTinderEmails, url: androidURL)
-            exportURL = iosURL // for backward compatibility, not used in new sheet
-            exportedFilePaths = [iosURL.path, androidURL.path]
+        let fileSaver = FileSaver()
+        if let filePaths = fileSaver.exportCSVData(
+            csvData,
+            filterTinderEmails: filterTinderEmails
+        ) {
+            exportedFilePaths = filePaths
             showingExportSheet = true
         }
+    }
+}
+
+// MARK: Child Views
+private extension ContentView {
+
+    var exportFilesButton: some View {
+        Button(action: exportData) {
+            Text("Export Processed CSV")
+                .frame(maxWidth: .infinity)
+                .padding()
+                .background(Color.green)
+                .foregroundColor(.white)
+                .cornerRadius(8)
+        }
+    }
+
+    var processFileButton: some View {
+        Button(action: processData) {
+            HStack {
+                if isProcessing {
+                    ProgressView()
+                        .scaleEffect(0.8)
+                }
+                Text(isProcessing ? "Processing..." : "Process Data")
+            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .background(Color.blue)
+            .foregroundColor(.white)
+            .cornerRadius(8)
+        }
+        .disabled(isProcessing)
+    }
+
+    var subtitleView: some View {
+        Text("Drag and drop a CSV file to process")
+            .font(.headline)
+            .foregroundColor(.secondary)
+    }
+
+    var titleView: some View {
+        Text("Cursor Stats CSV Processor")
+            .font(.largeTitle)
+            .fontWeight(.bold)
     }
 }
