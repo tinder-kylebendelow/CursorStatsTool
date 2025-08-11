@@ -1,0 +1,21 @@
+{
+  "files.exclude": {
+    "**/*.xcworkspace": true,
+    "**/*.xcodeproj": true,
+    "**/Derived": true,
+    "**/.tuist": true,
+    "**/DerivedData": true,
+    "**/xcuserdata": true,
+    "**/*.xcuserstate": true,
+    "**/.DS_Store": true
+  },
+  "search.exclude": {
+    "**/*.xcworkspace": true,
+    "**/*.xcodeproj": true,
+    "**/Derived": true,
+    "**/.tuist": true,
+    "**/DerivedData": true,
+    "**/xcuserdata": true,
+    "**/*.xcuserstate": true
+  }
+}

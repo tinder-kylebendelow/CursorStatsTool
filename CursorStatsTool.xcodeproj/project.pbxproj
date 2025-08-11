@@ -3,23 +3,59 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 55;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0E1815B682805436CD605E4E /* CSVRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0C0380206D6D74CE9267E /* CSVRow.swift */; };
+		27F95C6A64F14AAD3BB5ADC5 /* TinderFilterToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */; };
+		505A3FFE64445C6B193B5789 /* HighLevelStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */; };
+		519E98350D9D135E6B36461B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC70D3AC2B44E96B3CD11C1 /* ContentView.swift */; };
+		543C051AAFE842DFBBA39834 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD82485E1AAC4819658626 /* CSVExporter.swift */; };
+		54A754384C4B17740CF61286 /* CSVDropArea.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFA0F7BE62F14E80D4BDDC /* CSVDropArea.swift */; };
+		611D22370334CA5879735F4A /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */; };
+		65FF739259BEAE7C4B2F6150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A7489F80BDB8A47EE8B7C1 /* Assets.xcassets */; };
+		71A06759241DB34996EA998A /* SuccessfulExportDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */; };
+		938CC38E96846206B7D4DAC6 /* TuistAssets+CursorStatsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFC44EE29DB5B50EE2B358 /* TuistAssets+CursorStatsTool.swift */; };
+		A207CC7A5F00149922F38FE0 /* TuistBundle+CursorStatsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4070D3A9AFBDD4468EC7EE /* TuistBundle+CursorStatsTool.swift */; };
+		B5A853E64F98DA19394F56CE /* FileSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */; };
+		ECC7F131F987BE860EE53524 /* CursorStatsToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3504631D3837569CFB4097 /* CursorStatsToolApp.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DA566FE5C8ED3270FE52DD62 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		27B2150D2E130CA100224816 /* CursorStatsTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CursorStatsTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13E146EC934B346202F32D52 /* CursorStatsTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CursorStatsTool.entitlements; sourceTree = "<group>"; };
+		2D9353689CFDAAFF63C016CF /* CursorStatsTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CursorStatsTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D3504631D3837569CFB4097 /* CursorStatsToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorStatsToolApp.swift; sourceTree = "<group>"; };
+		4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
+		6BC0C0380206D6D74CE9267E /* CSVRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVRow.swift; sourceTree = "<group>"; };
+		730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderFilterToggle.swift; sourceTree = "<group>"; };
+		7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulExportDialog.swift; sourceTree = "<group>"; };
+		8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSaver.swift; sourceTree = "<group>"; };
+		92565594FBA059EB36D71F46 /* CursorStatsTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CursorStatsTool-Info.plist"; sourceTree = "<group>"; };
+		A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLevelStatsView.swift; sourceTree = "<group>"; };
+		B3AD82485E1AAC4819658626 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
+		C2CFA0F7BE62F14E80D4BDDC /* CSVDropArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDropArea.swift; sourceTree = "<group>"; };
+		D7A7489F80BDB8A47EE8B7C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DEBFC44EE29DB5B50EE2B358 /* TuistAssets+CursorStatsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+CursorStatsTool.swift"; sourceTree = "<group>"; };
+		DFC70D3AC2B44E96B3CD11C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FC4070D3A9AFBDD4468EC7EE /* TuistBundle+CursorStatsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+CursorStatsTool.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		27B2150F2E130CA100224816 /* CursorStatsTool */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = CursorStatsTool;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		27B2150A2E130CA100224816 /* Frameworks */ = {
+		49908757B3FBEDFD425C5162 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -29,110 +65,186 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		27B215042E130CA100224816 = {
+		13CE355323135160F220F8DA /* Derived */ = {
 			isa = PBXGroup;
 			children = (
-				27B2150F2E130CA100224816 /* CursorStatsTool */,
-				27B2150E2E130CA100224816 /* Products */,
+				7D873D1F17AD7DAADCC791EC /* InfoPlists */,
+				F5EF42A0E9438A4FFB27C9A1 /* Sources */,
+			);
+			path = Derived;
+			sourceTree = "<group>";
+		};
+		5C55B42871C95C282A44AA17 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C2CFA0F7BE62F14E80D4BDDC /* CSVDropArea.swift */,
+				A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */,
+				7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */,
+				730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5CCB8CF07E70115C8C7D1E20 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				B3AD82485E1AAC4819658626 /* CSVExporter.swift */,
+				4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */,
+				6BC0C0380206D6D74CE9267E /* CSVRow.swift */,
+				8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		72462839246EDF59C897659E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2D9353689CFDAAFF63C016CF /* CursorStatsTool.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7D873D1F17AD7DAADCC791EC /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				92565594FBA059EB36D71F46 /* CursorStatsTool-Info.plist */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		9467D019A9FE1DEE532B26C7 = {
+			isa = PBXGroup;
+			children = (
+				F79766DF92B2342F160F2151 /* Project */,
+				72462839246EDF59C897659E /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		27B2150E2E130CA100224816 /* Products */ = {
+		A70E9511D13DFF18F84B55C9 /* CursorStatsTool */ = {
 			isa = PBXGroup;
 			children = (
-				27B2150D2E130CA100224816 /* CursorStatsTool.app */,
+				5CCB8CF07E70115C8C7D1E20 /* Model */,
+				5C55B42871C95C282A44AA17 /* View */,
+				D7A7489F80BDB8A47EE8B7C1 /* Assets.xcassets */,
+				DFC70D3AC2B44E96B3CD11C1 /* ContentView.swift */,
+				13E146EC934B346202F32D52 /* CursorStatsTool.entitlements */,
+				3D3504631D3837569CFB4097 /* CursorStatsToolApp.swift */,
 			);
-			name = Products;
+			path = CursorStatsTool;
+			sourceTree = "<group>";
+		};
+		F5EF42A0E9438A4FFB27C9A1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DEBFC44EE29DB5B50EE2B358 /* TuistAssets+CursorStatsTool.swift */,
+				FC4070D3A9AFBDD4468EC7EE /* TuistBundle+CursorStatsTool.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		F79766DF92B2342F160F2151 /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				A70E9511D13DFF18F84B55C9 /* CursorStatsTool */,
+				13CE355323135160F220F8DA /* Derived */,
+			);
+			name = Project;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		27B2150C2E130CA100224816 /* CursorStatsTool */ = {
+		16761194F539B36DBC4FAD4F /* CursorStatsTool */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 27B2151C2E130CA200224816 /* Build configuration list for PBXNativeTarget "CursorStatsTool" */;
+			buildConfigurationList = 757E2447EDB5FA8E61A03911 /* Build configuration list for PBXNativeTarget "CursorStatsTool" */;
 			buildPhases = (
-				27B215092E130CA100224816 /* Sources */,
-				27B2150A2E130CA100224816 /* Frameworks */,
-				27B2150B2E130CA100224816 /* Resources */,
+				FF52A432A00C87001E559BBC /* Sources */,
+				CACAFF8084D679AED552D37F /* Resources */,
+				49908757B3FBEDFD425C5162 /* Frameworks */,
+				DA566FE5C8ED3270FE52DD62 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				27B2150F2E130CA100224816 /* CursorStatsTool */,
-			);
 			name = CursorStatsTool;
 			packageProductDependencies = (
 			);
 			productName = CursorStatsTool;
-			productReference = 27B2150D2E130CA100224816 /* CursorStatsTool.app */;
+			productReference = 2D9353689CFDAAFF63C016CF /* CursorStatsTool.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		27B215052E130CA100224816 /* Project object */ = {
+		E4B9EA7268A031F14A97CB7A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1620;
-				LastUpgradeCheck = 1620;
+				BuildIndependentTargetsInParallel = YES;
 				TargetAttributes = {
-					27B2150C2E130CA100224816 = {
-						CreatedOnToolsVersion = 16.2;
-					};
 				};
 			};
-			buildConfigurationList = 27B215082E130CA100224816 /* Build configuration list for PBXProject "CursorStatsTool" */;
+			buildConfigurationList = 6043ED2E142B9BB3DB25F93E /* Build configuration list for PBXProject "CursorStatsTool" */;
+			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = 27B215042E130CA100224816;
-			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 77;
-			productRefGroup = 27B2150E2E130CA100224816 /* Products */;
+			mainGroup = 9467D019A9FE1DEE532B26C7;
+			productRefGroup = 72462839246EDF59C897659E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				27B2150C2E130CA100224816 /* CursorStatsTool */,
+				16761194F539B36DBC4FAD4F /* CursorStatsTool */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		27B2150B2E130CA100224816 /* Resources */ = {
+		CACAFF8084D679AED552D37F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65FF739259BEAE7C4B2F6150 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		27B215092E130CA100224816 /* Sources */ = {
+		FF52A432A00C87001E559BBC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519E98350D9D135E6B36461B /* ContentView.swift in Sources */,
+				ECC7F131F987BE860EE53524 /* CursorStatsToolApp.swift in Sources */,
+				543C051AAFE842DFBBA39834 /* CSVExporter.swift in Sources */,
+				611D22370334CA5879735F4A /* CSVParser.swift in Sources */,
+				0E1815B682805436CD605E4E /* CSVRow.swift in Sources */,
+				B5A853E64F98DA19394F56CE /* FileSaver.swift in Sources */,
+				54A754384C4B17740CF61286 /* CSVDropArea.swift in Sources */,
+				505A3FFE64445C6B193B5789 /* HighLevelStatsView.swift in Sources */,
+				71A06759241DB34996EA998A /* SuccessfulExportDialog.swift in Sources */,
+				27F95C6A64F14AAD3BB5ADC5 /* TinderFilterToggle.swift in Sources */,
+				938CC38E96846206B7D4DAC6 /* TuistAssets+CursorStatsTool.swift in Sources */,
+				A207CC7A5F00149922F38FE0 /* TuistBundle+CursorStatsTool.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		27B2151A2E130CA200224816 /* Debug */ = {
+		2AA1E570AB3AA206E1C22DD7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -159,11 +271,94 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		76339A211A350942B36F8DE0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CursorStatsTool/CursorStatsTool.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/CursorStatsTool-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinder.cursorstatstool.CursorStatsTool;
+				PRODUCT_NAME = CursorStatsTool;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		F603855BD211538FC26D03BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -177,170 +372,68 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FD7976B3AF00568B15062741 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CursorStatsTool/CursorStatsTool.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/CursorStatsTool-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tinder.cursorstatstool.CursorStatsTool;
+				PRODUCT_NAME = CursorStatsTool;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+					"$(inherited)",
+					DEBUG,
+				);
+				SWIFT_COMPILATION_MODE = singlefile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
-		};
-		27B2151B2E130CA200224816 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-			};
-			name = Release;
-		};
-		27B2151D2E130CA200224816 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CursorStatsTool/CursorStatsTool.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CursorStatsTool/Preview Content\"";
-				DEVELOPMENT_TEAM = 9PNY537U6J;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.7;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinder.cursorstatstool.CursorStatsTool;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Debug;
-		};
-		27B2151E2E130CA200224816 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = CursorStatsTool/CursorStatsTool.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"CursorStatsTool/Preview Content\"";
-				DEVELOPMENT_TEAM = 9PNY537U6J;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
-				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
-				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 14.7;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tinder.cursorstatstool.CursorStatsTool;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = macosx;
-				SUPPORTS_MACCATALYST = NO;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				XROS_DEPLOYMENT_TARGET = 2.2;
-			};
-			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		27B215082E130CA100224816 /* Build configuration list for PBXProject "CursorStatsTool" */ = {
+		6043ED2E142B9BB3DB25F93E /* Build configuration list for PBXProject "CursorStatsTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				27B2151A2E130CA200224816 /* Debug */,
-				27B2151B2E130CA200224816 /* Release */,
+				F603855BD211538FC26D03BD /* Debug */,
+				2AA1E570AB3AA206E1C22DD7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		27B2151C2E130CA200224816 /* Build configuration list for PBXNativeTarget "CursorStatsTool" */ = {
+		757E2447EDB5FA8E61A03911 /* Build configuration list for PBXNativeTarget "CursorStatsTool" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				27B2151D2E130CA200224816 /* Debug */,
-				27B2151E2E130CA200224816 /* Release */,
+				FD7976B3AF00568B15062741 /* Debug */,
+				76339A211A350942B36F8DE0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 27B215052E130CA100224816 /* Project object */;
+	rootObject = E4B9EA7268A031F14A97CB7A /* Project object */;
 }

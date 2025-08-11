@@ -4,18 +4,20 @@ A macOS app that processes Cursor analytics CSV files to filter and merge data f
 
 ## Features
 
-- **Drag and Drop Interface**: Simply drag a CSV file onto the app or click to select one
-- **Swift Extension Filtering**: Automatically filters rows to only include entries where Swift is used as the "Most Used Apply Extension" or "Most Used Tab Extension"
+- **Multiple File Support**: Drag and drop multiple CSV files at once or select multiple files
+- **Swift Extension Filtering**: Automatically filters rows to only include entries where Swift is used as the "Most Used Apply Extension" or "Most Used Tab Extension"  
+- **Smart Model Selection**: Determines the most-used model by analyzing total usage statistics across all days
 - **Data Merging**: Combines multiple days of data for the same user (by email) by summing numeric columns
 - **Column Removal**: Automatically removes "Is Active" and "Client Version" columns from the output
 - **CSV Export**: Export the processed data to a new CSV file
 
 ## How to Use
 
-1. **Launch the App**: Open `CursorStatsTool.app` in Xcode or build and run the project
-2. **Load CSV**: Drag and drop your Cursor analytics CSV file onto the app, or click the drop area to select a file
-3. **Process Data**: Click the "Process Data" button to filter and merge the data
-4. **Export**: Click "Export Processed CSV" to save the results to a new file
+1. **Generate Project**: Run `tuist generate` to create the Xcode workspace
+2. **Launch the App**: Open `CursorStatsTool.xcworkspace` in Xcode or build and run the project
+3. **Load CSV**: Drag and drop your CSV file(s) onto the app, or click the drop area to select multiple files
+4. **Process Data**: Click the "Process Data" button to filter and merge the data
+5. **Export**: Click "Export Processed CSV" to save the results to a new file
 
 ## Input Format
 
@@ -58,12 +60,25 @@ The processed CSV will contain:
 
 - macOS 14.7 or later
 - Xcode 16.0 or later (for building)
+- Tuist 4.59.2 or later
 
 ## Building
 
-1. Open `CursorStatsTool.xcodeproj` in Xcode
-2. Select your target device (Mac)
-3. Build and run (⌘+R)
+1. Install Tuist: `brew install tuist` 
+2. Generate the Xcode workspace: `tuist generate`
+3. Open `CursorStatsTool.xcworkspace` in Xcode
+4. Select your target device (Mac)
+5. Build and run (⌘+R)
+
+## Project Structure
+
+This project uses [Tuist](https://tuist.io) for project generation and management. The main configuration is in `Project.swift`. 
+
+Key benefits:
+- **Reproducible builds**: No more merge conflicts in `.xcodeproj` files
+- **Modular architecture**: Easy to add new targets and dependencies
+- **Generated files**: The `Derived/` folder contains auto-generated helper files
+- **Version control friendly**: Only source files and `Project.swift` are tracked
 
 ## Example
 

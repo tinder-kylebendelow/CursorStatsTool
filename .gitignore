@@ -1,0 +1,26 @@
+# Xcode generated files
+*.xcodeproj
+*.xcworkspace
+Derived/
+
+# Tuist generated files
+graph.json
+
+# macOS
+.DS_Store
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+
+# Swift Package Manager
+.swiftpm/
+
+# Build artifacts
+DerivedData/
+
+# Tuist cache
+.tuist/
+
+# Editor settings (optional - remove this line if you want to commit .vscode/settings.json)
+# .vscode/
