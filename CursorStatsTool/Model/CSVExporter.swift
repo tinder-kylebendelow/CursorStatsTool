@@ -91,6 +91,9 @@ class CSVExporter {
                 mergedValues[i] = firstRow.values[i] // Keep first user ID
             } else if headers[i] == "Date" {
                 mergedValues[i] = "Merged" // Indicate this is merged data
+            } else if headers[i] == "Most Used Model" {
+                // Calculate the most used model based on total usage across all days
+                mergedValues[i] = calculateMostUsedModel(for: rows, headers: headers)
             } else {
                 // For non-numeric columns, keep the first non-empty value
                 let nonEmptyValues = rows.compactMap { row in
@@ -102,6 +105,63 @@ class CSVExporter {
         }
         
         return CSVRow(headers: headers, values: mergedValues)
+    }
+    
+    private func calculateMostUsedModel(for rows: [CSVRow], headers: [String]) -> String {
+        var modelUsage: [String: Int] = [:]
+        
+        // Find indices for relevant columns
+        guard let modelIndex = headers.firstIndex(of: "Most Used Model") else {
+            return ""
+        }
+        
+        // Define usage columns that indicate model activity
+        let usageColumns = [
+            "Edit Requests",
+            "Ask Requests", 
+            "Agent Requests",
+            "Cmd+K Usages",
+            "Subscription Included Reqs",
+            "API Key Reqs",
+            "Usage Based Reqs"
+        ]
+        
+        // Calculate total usage for each model
+        for row in rows {
+            guard modelIndex < row.values.count else { continue }
+            
+            let model = row.values[modelIndex].trimmingCharacters(in: .whitespacesAndNewlines)
+            if model.isEmpty { continue }
+            
+            // Calculate total usage for this row
+            var totalUsage = 0
+            for usageColumn in usageColumns {
+                if let columnIndex = headers.firstIndex(of: usageColumn),
+                   columnIndex < row.values.count,
+                   let usage = Int(row.values[columnIndex]) {
+                    totalUsage += usage
+                }
+            }
+            
+            // Add to model usage count
+            modelUsage[model, default: 0] += totalUsage
+        }
+        
+        // Find the model with the highest usage
+        let mostUsedModel = modelUsage.max { $0.value < $1.value }?.key ?? ""
+        
+        // If no usage found, fall back to the first non-empty model
+        if mostUsedModel.isEmpty {
+            for row in rows {
+                guard modelIndex < row.values.count else { continue }
+                let model = row.values[modelIndex].trimmingCharacters(in: .whitespacesAndNewlines)
+                if !model.isEmpty {
+                    return model
+                }
+            }
+        }
+        
+        return mostUsedModel
     }
     
     private func isNumericColumn(_ header: String) -> Bool {
