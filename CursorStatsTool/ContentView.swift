@@ -53,7 +53,7 @@ struct ContentView: View {
         .fileImporter(
             isPresented: .constant(false),
             allowedContentTypes: [UTType.commaSeparatedText],
-            allowsMultipleSelection: false
+            allowsMultipleSelection: true
         ) { result in
             handleFileSelection(result)
         }
@@ -69,36 +69,49 @@ struct ContentView: View {
     
     private func selectFile() {
         let panel = NSOpenPanel()
-        panel.allowsMultipleSelection = false
+        panel.allowsMultipleSelection = true
         panel.canChooseDirectories = false
         panel.canChooseFiles = true
         panel.allowedContentTypes = [UTType.commaSeparatedText]
         
         if panel.runModal() == .OK {
-            if let url = panel.url {
-                loadCSV(from: url)
-            }
+            loadMultipleCSVs(from: panel.urls)
         }
     }
     
     private func handleDrop(providers: [NSItemProvider]) {
-        guard let provider = providers.first else { return }
+        var allCsvData: [CSVRow] = []
+        let group = DispatchGroup()
         
-        provider.loadItem(forTypeIdentifier: UTType.commaSeparatedText.identifier, options: nil) { item, error in
-            DispatchQueue.main.async {
+        for provider in providers {
+            group.enter()
+            provider.loadItem(forTypeIdentifier: UTType.commaSeparatedText.identifier, options: nil) { item, error in
+                defer { group.leave() }
+                
                 if let url = item as? URL {
-                    loadCSV(from: url)
+                    do {
+                        let content = try String(contentsOf: url)
+                        let parser = CSVParser()
+                        let data = parser.parseCSV(content)
+                        DispatchQueue.main.sync {
+                            allCsvData.append(contentsOf: data)
+                        }
+                    } catch {
+                        print("Error loading CSV from \(url): \(error)")
+                    }
                 }
             }
+        }
+        
+        group.notify(queue: .main) {
+            self.csvData = allCsvData
         }
     }
     
     private func handleFileSelection(_ result: Result<[URL], Error>) {
         switch result {
         case .success(let urls):
-            if let url = urls.first {
-                loadCSV(from: url)
-            }
+            loadMultipleCSVs(from: urls)
         case .failure(let error):
             print("File selection error: \(error)")
         }
@@ -112,6 +125,23 @@ struct ContentView: View {
         } catch {
             print("Error loading CSV: \(error)")
         }
+    }
+    
+    private func loadMultipleCSVs(from urls: [URL]) {
+        var allCsvData: [CSVRow] = []
+        
+        for url in urls {
+            do {
+                let content = try String(contentsOf: url)
+                let parser = CSVParser()
+                let data = parser.parseCSV(content)
+                allCsvData.append(contentsOf: data)
+            } catch {
+                print("Error loading CSV from \(url): \(error)")
+            }
+        }
+        
+        csvData = allCsvData
     }
     
     private func processData() {
@@ -177,7 +207,7 @@ private extension ContentView {
     }
 
     var subtitleView: some View {
-        Text("Drag and drop a CSV file to process")
+        Text("Drag and drop CSV file(s) to process")
             .font(.headline)
             .foregroundColor(.secondary)
     }

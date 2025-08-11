@@ -18,7 +18,7 @@ struct CSVDropArea: View {
                     .font(.system(size: 50))
                     .foregroundColor(dragOver ? .blue : .gray)
                 
-                Text("Drop CSV file here")
+                Text("Drop CSV file(s) here")
                     .font(.title2)
                     .foregroundColor(dragOver ? .blue : .gray)
                 
