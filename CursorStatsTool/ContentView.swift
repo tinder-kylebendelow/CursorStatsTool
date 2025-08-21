@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var showingExportSheet = false
 
     @State private var dragOver = false
-    @State private var selectedEmailDomain: EmailDomain = .both
+    @State private var selectedEmailDomain: EmailDomain = .all
     @State private var exportedFilePaths: [String] = []
 
     var body: some View {

@@ -29,7 +29,6 @@ struct HighLevelStatsView: View {
                 Text("• Total rows: \(csvData.count)")
                 Text("• Unique users: \(Set(csvData.map { $0.email }).count)")
                 Text("• Swift extension rows: \(csvData.filter { $0.isSwiftExtension }.count)")
-                Text("• Kotlin extension rows: \(csvData.filter { $0.isKotlinExtension }.count)")
                 Text("• Tinder users: \(tinderUsersCount)")
                 Text("• Hinge users: \(hingeUsersCount)")
             }
