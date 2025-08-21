@@ -5,13 +5,16 @@ class CSVExporter {
     func export(
         csvData: [CSVRow],
         extensionName: String,
-        filterTinderEmails: Bool,
+        filterDomain: EmailDomain?,
         url: URL
     ) {
         // Filter and merge for the given extension
         var filteredRows = csvData.filter { $0.matchesExtension(extensionName) }
-        if filterTinderEmails {
-            filteredRows = filteredRows.filter { $0.email.lowercased().hasSuffix("@gotinder.com") }
+        if let domain = filterDomain {
+            filteredRows = filteredRows.filter { row in
+                let emailLower = row.email.lowercased()
+                return domain.allowedSuffixes.contains(where: { emailLower.hasSuffix($0) })
+            }
         }
         let groupedData = Dictionary(grouping: filteredRows) { $0.email }
         let mergedData = groupedData.map { email, rows in
@@ -59,11 +62,14 @@ class CSVExporter {
     func processDataForPreview(
         csvData: [CSVRow],
         extensionName: String,
-        filterTinderEmails: Bool
+        filterDomain: EmailDomain?
     ) -> [CSVRow] {
         var filteredRows = csvData.filter { $0.matchesExtension(extensionName) }
-        if filterTinderEmails {
-            filteredRows = filteredRows.filter { $0.email.lowercased().hasSuffix("@gotinder.com") }
+        if let domain = filterDomain {
+            filteredRows = filteredRows.filter { row in
+                let emailLower = row.email.lowercased()
+                return domain.allowedSuffixes.contains(where: { emailLower.hasSuffix($0) })
+            }
         }
         let groupedData = Dictionary(grouping: filteredRows) { $0.email }
         let mergedData = groupedData.map { email, rows in

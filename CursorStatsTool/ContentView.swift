@@ -15,7 +15,7 @@ struct ContentView: View {
     @State private var showingExportSheet = false
 
     @State private var dragOver = false
-    @State private var filterTinderEmails = true
+    @State private var selectedEmailDomain: EmailDomain = .both
     @State private var exportedFilePaths: [String] = []
 
     var body: some View {
@@ -44,7 +44,7 @@ struct ContentView: View {
                 exportFilesButton
             }
             TinderFilterToggle(
-                isTinderFilterEnabled: $filterTinderEmails
+                selectedDomain: $selectedEmailDomain
             )
             Spacer()
         }
@@ -153,7 +153,7 @@ struct ContentView: View {
             let mergedData = exporter.processDataForPreview(
                 csvData: csvData,
                 extensionName: "swift",
-                filterTinderEmails: filterTinderEmails
+                filterDomain: selectedEmailDomain
             )
             DispatchQueue.main.async {
                 processedData = mergedData
@@ -166,7 +166,7 @@ struct ContentView: View {
         let fileSaver = FileSaver()
         if let filePaths = fileSaver.exportCSVData(
             csvData,
-            filterTinderEmails: filterTinderEmails
+            filterDomain: selectedEmailDomain
         ) {
             exportedFilePaths = filePaths
             showingExportSheet = true

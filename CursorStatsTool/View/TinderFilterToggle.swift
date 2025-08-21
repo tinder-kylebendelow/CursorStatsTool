@@ -8,11 +8,18 @@
 import SwiftUI
 
 struct TinderFilterToggle: View {
-    @Binding var isTinderFilterEnabled: Bool
+    @Binding var selectedDomain: EmailDomain
 
     var body: some View {
-        Toggle("Only include @gotinder.com emails", isOn: $isTinderFilterEnabled)
-            .toggleStyle(CheckboxToggleStyle())
-            .padding(.bottom, 8)
+        HStack {
+            Text("Email domain:")
+            Picker("Email domain", selection: $selectedDomain) {
+                ForEach(EmailDomain.allCases) { domain in
+                    Text(domain.displayName).tag(domain)
+                }
+            }
+            .pickerStyle(.menu)
+        }
+        .padding(.bottom, 8)
     }
 }

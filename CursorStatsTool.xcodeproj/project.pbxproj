@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E1815B682805436CD605E4E /* CSVRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BC0C0380206D6D74CE9267E /* CSVRow.swift */; };
 		27F95C6A64F14AAD3BB5ADC5 /* TinderFilterToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */; };
+		2991A6DAC50075A345C84D54 /* EmailDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0077925EF277C4012CA13AD1 /* EmailDomain.swift */; };
 		505A3FFE64445C6B193B5789 /* HighLevelStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */; };
 		519E98350D9D135E6B36461B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC70D3AC2B44E96B3CD11C1 /* ContentView.swift */; };
 		543C051AAFE842DFBBA39834 /* CSVExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3AD82485E1AAC4819658626 /* CSVExporter.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0077925EF277C4012CA13AD1 /* EmailDomain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailDomain.swift; sourceTree = "<group>"; };
 		13E146EC934B346202F32D52 /* CursorStatsTool.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CursorStatsTool.entitlements; sourceTree = "<group>"; };
 		2D9353689CFDAAFF63C016CF /* CursorStatsTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CursorStatsTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D3504631D3837569CFB4097 /* CursorStatsToolApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CursorStatsToolApp.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 				B3AD82485E1AAC4819658626 /* CSVExporter.swift */,
 				4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */,
 				6BC0C0380206D6D74CE9267E /* CSVRow.swift */,
+				0077925EF277C4012CA13AD1 /* EmailDomain.swift */,
 				8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */,
 			);
 			path = Model;
@@ -223,6 +226,7 @@
 				543C051AAFE842DFBBA39834 /* CSVExporter.swift in Sources */,
 				611D22370334CA5879735F4A /* CSVParser.swift in Sources */,
 				0E1815B682805436CD605E4E /* CSVRow.swift in Sources */,
+				2991A6DAC50075A345C84D54 /* EmailDomain.swift in Sources */,
 				B5A853E64F98DA19394F56CE /* FileSaver.swift in Sources */,
 				54A754384C4B17740CF61286 /* CSVDropArea.swift in Sources */,
 				505A3FFE64445C6B193B5789 /* HighLevelStatsView.swift in Sources */,
