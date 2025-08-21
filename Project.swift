@@ -25,7 +25,8 @@ let project = Project(
                     "ENABLE_HARDENED_RUNTIME": "YES",
                     "COMBINE_HIDPI_IMAGES": "YES",
                     "ENABLE_APP_SANDBOX": "YES",
-                    "SWIFT_VERSION": "5.0"
+                    "SWIFT_VERSION": "5.0",
+                    "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon"
                 ]
             )
         )
