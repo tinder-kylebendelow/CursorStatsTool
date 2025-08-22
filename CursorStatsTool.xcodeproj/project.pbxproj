@@ -17,6 +17,7 @@
 		611D22370334CA5879735F4A /* CSVParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */; };
 		65FF739259BEAE7C4B2F6150 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7A7489F80BDB8A47EE8B7C1 /* Assets.xcassets */; };
 		71A06759241DB34996EA998A /* SuccessfulExportDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */; };
+		74B1DE97A51387805F80AFC3 /* ProcessedDashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7339CA1D9B86A4877AA6F36D /* ProcessedDashboardView.swift */; };
 		938CC38E96846206B7D4DAC6 /* TuistAssets+CursorStatsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFC44EE29DB5B50EE2B358 /* TuistAssets+CursorStatsTool.swift */; };
 		A207CC7A5F00149922F38FE0 /* TuistBundle+CursorStatsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4070D3A9AFBDD4468EC7EE /* TuistBundle+CursorStatsTool.swift */; };
 		DB826C4CE7F446B853B413C2 /* CSVExportPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC2BD2B58923254C9037C /* CSVExportPanel.swift */; };
@@ -45,6 +46,7 @@
 		4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVParser.swift; sourceTree = "<group>"; };
 		6BC0C0380206D6D74CE9267E /* CSVRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVRow.swift; sourceTree = "<group>"; };
 		730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderFilterToggle.swift; sourceTree = "<group>"; };
+		7339CA1D9B86A4877AA6F36D /* ProcessedDashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessedDashboardView.swift; sourceTree = "<group>"; };
 		7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulExportDialog.swift; sourceTree = "<group>"; };
 		92565594FBA059EB36D71F46 /* CursorStatsTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CursorStatsTool-Info.plist"; sourceTree = "<group>"; };
 		A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLevelStatsView.swift; sourceTree = "<group>"; };
@@ -83,6 +85,7 @@
 			children = (
 				C2CFA0F7BE62F14E80D4BDDC /* CSVDropArea.swift */,
 				A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */,
+				7339CA1D9B86A4877AA6F36D /* ProcessedDashboardView.swift */,
 				7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */,
 				730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */,
 			);
@@ -234,6 +237,7 @@
 				2991A6DAC50075A345C84D54 /* EmailDomain.swift in Sources */,
 				54A754384C4B17740CF61286 /* CSVDropArea.swift in Sources */,
 				505A3FFE64445C6B193B5789 /* HighLevelStatsView.swift in Sources */,
+				74B1DE97A51387805F80AFC3 /* ProcessedDashboardView.swift in Sources */,
 				71A06759241DB34996EA998A /* SuccessfulExportDialog.swift in Sources */,
 				27F95C6A64F14AAD3BB5ADC5 /* TinderFilterToggle.swift in Sources */,
 				938CC38E96846206B7D4DAC6 /* TuistAssets+CursorStatsTool.swift in Sources */,

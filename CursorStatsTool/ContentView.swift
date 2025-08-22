@@ -23,26 +23,29 @@ struct ContentView: View {
             titleView
             subtitleView
 
-            CSVDropArea(
-                dragOver: $dragOver,
-                onTap: selectFile,
-                onDrop: { providers in
-                    handleDrop(providers: providers)
-                    return true
-                }
-            )
+            if processedData.isEmpty {
+                CSVDropArea(
+                    dragOver: $dragOver,
+                    onTap: selectFile,
+                    onDrop: { providers in
+                        handleDrop(providers: providers)
+                        return true
+                    }
+                )
 
-            HighLevelStatsView(
-                csvData: csvData
-            )
-            
-            if !csvData.isEmpty {
-                processFileButton
-            }
-            
-            if !processedData.isEmpty {
+                HighLevelStatsView(
+                    csvData: csvData
+                )
+                
+                if !csvData.isEmpty {
+                    processFileButton
+                }
+            } else {
+                // Processed mode: show charts dashboard
+                ProcessedDashboardView(processedData: processedData)
                 exportFilesButton
             }
+            
             TinderFilterToggle(
                 selectedDomain: $selectedEmailDomain
             )
@@ -64,6 +67,12 @@ struct ContentView: View {
                     showingExportSheet = false
                 }
             )
+        }
+        .onChange(of: selectedEmailDomain) { _ in
+            // Reprocess automatically so charts and export reflect current filter
+            if !csvData.isEmpty && !isProcessing {
+                processData()
+            }
         }
     }
     
@@ -105,6 +114,7 @@ struct ContentView: View {
         
         group.notify(queue: .main) {
             self.csvData = allCsvData
+            self.processedData = []
         }
     }
     
@@ -122,6 +132,7 @@ struct ContentView: View {
             let content = try String(contentsOf: url)
             let parser = CSVParser()
             csvData = parser.parseCSV(content)
+            processedData = []
         } catch {
             print("Error loading CSV: \(error)")
         }
@@ -142,6 +153,7 @@ struct ContentView: View {
         }
         
         csvData = allCsvData
+        processedData = []
     }
     
     private func processData() {
