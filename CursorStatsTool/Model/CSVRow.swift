@@ -43,6 +43,4 @@ struct CSVRow {
 
         return applyExtension.lowercased() == "swift" || tabExtension.lowercased() == "swift"
     }
-    
-    // Android/Kotlin support removed
 }

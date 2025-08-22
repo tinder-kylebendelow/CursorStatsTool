@@ -45,6 +45,34 @@ struct ProcessedDashboardView: View {
         .cornerRadius(12)
     }
 
+    /// Fixed color mapping domain and range for consistent styling.
+    /// Include all categories produced by `companyName(for:)` to prevent runtime issues
+    /// when unseen categories appear in data.
+    private var fixedCompanyDomain: [String] {
+        [
+            "Tinder",
+            "Match",
+            "OKCupid",
+            "Hinge",
+            "The League",
+            "Eureka",
+            "Meetic",
+            "Other"
+        ]
+    }
+    private var fixedCompanyColors: [Color] {
+        [
+            .red,           // Tinder
+            .blue,          // Match
+            .pink,          // OKCupid
+            .gray,          // Hinge (neutral)
+            .teal,          // The League
+            .orange,        // Eureka
+            .purple,        // Meetic
+            .gray.opacity(0.35) // Other
+        ]
+    }
+
     /// Header text for the dashboard.
     private var header: some View {
         VStack(alignment: .leading, spacing: 4) {
@@ -101,6 +129,7 @@ struct ProcessedDashboardView: View {
                             }
                         }
                     }
+                    .chartForegroundStyleScale(domain: fixedCompanyDomain, range: fixedCompanyColors)
                     .chartLegend(.visible)
                     .frame(height: 320)
                 case .bar:
@@ -117,6 +146,8 @@ struct ProcessedDashboardView: View {
                         )
                         .foregroundStyle(by: .value("Company", stat.company))
                     }
+                    .chartForegroundStyleScale(domain: fixedCompanyDomain, range: fixedCompanyColors)
+                    .chartLegend(.visible)
                     .chartYAxisLabel(selectedMetric.rawValue)
                     .frame(height: 320)
                 }
