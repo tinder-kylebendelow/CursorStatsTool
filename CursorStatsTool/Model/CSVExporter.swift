@@ -1,7 +1,14 @@
 import Foundation
 
+/// Generates CSV content from `CSVRow` data and writes it to disk.
 class CSVExporter {
     
+    /// Filters, merges, and writes CSV data for a specific extension to disk.
+    /// - Parameters:
+    ///   - csvData: Source rows to process and export.
+    ///   - extensionName: Programming language key used to filter rows (e.g. "swift").
+    ///   - filterDomain: Optional email domain filter to apply before export.
+    ///   - url: Destination file URL where CSV will be written.
     func export(
         csvData: [CSVRow],
         extensionName: String,
@@ -59,6 +66,13 @@ class CSVExporter {
         }
     }
     
+    /// Processes data identically to `export` but returns the merged rows
+    /// for UI preview instead of writing to disk.
+    /// - Parameters:
+    ///   - csvData: Source rows to process.
+    ///   - extensionName: Programming language key used to filter rows.
+    ///   - filterDomain: Optional email domain filter to apply.
+    /// - Returns: Merged rows suitable for preview in the UI.
     func processDataForPreview(
         csvData: [CSVRow],
         extensionName: String,
@@ -78,6 +92,11 @@ class CSVExporter {
         return mergedData
     }
     
+    /// Merges multiple daily rows for the same user into a single aggregated row.
+    /// - Parameters:
+    ///   - rows: All rows belonging to the same email.
+    ///   - email: The user email used to fill the "Email" column.
+    /// - Returns: Aggregated `CSVRow` with numeric columns summed and key fields normalized.
     private func mergeRows(_ rows: [CSVRow], email: String) -> CSVRow {
         guard let firstRow = rows.first else { return CSVRow() }
         
@@ -113,6 +132,11 @@ class CSVExporter {
         return CSVRow(headers: headers, values: mergedValues)
     }
     
+    /// Determines the most used model across the merged rows by summing usage metrics.
+    /// - Parameters:
+    ///   - rows: Rows to analyze.
+    ///   - headers: CSV headers used to locate relevant columns.
+    /// - Returns: The model name with the highest aggregated usage, or a best-effort fallback.
     private func calculateMostUsedModel(for rows: [CSVRow], headers: [String]) -> String {
         var modelUsage: [String: Int] = [:]
         
@@ -170,6 +194,9 @@ class CSVExporter {
         return mostUsedModel
     }
     
+    /// Indicates whether the given header corresponds to a numeric column to be summed.
+    /// - Parameter header: Column header name.
+    /// - Returns: `true` if the column is numeric and should be aggregated; otherwise `false`.
     private func isNumericColumn(_ header: String) -> Bool {
         let numericColumns = [
             "Chat Suggested Lines Added",

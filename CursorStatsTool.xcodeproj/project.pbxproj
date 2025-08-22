@@ -19,7 +19,8 @@
 		71A06759241DB34996EA998A /* SuccessfulExportDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */; };
 		938CC38E96846206B7D4DAC6 /* TuistAssets+CursorStatsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFC44EE29DB5B50EE2B358 /* TuistAssets+CursorStatsTool.swift */; };
 		A207CC7A5F00149922F38FE0 /* TuistBundle+CursorStatsTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4070D3A9AFBDD4468EC7EE /* TuistBundle+CursorStatsTool.swift */; };
-		B5A853E64F98DA19394F56CE /* FileSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */; };
+		DB826C4CE7F446B853B413C2 /* CSVExportPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ABC2BD2B58923254C9037C /* CSVExportPanel.swift */; };
+		E52963521C9C7328FE13DA40 /* CSVExportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E87506A189F496F8981575 /* CSVExportCoordinator.swift */; };
 		ECC7F131F987BE860EE53524 /* CursorStatsToolApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D3504631D3837569CFB4097 /* CursorStatsToolApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,14 +46,15 @@
 		6BC0C0380206D6D74CE9267E /* CSVRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVRow.swift; sourceTree = "<group>"; };
 		730ACEAB9062E2D09E836788 /* TinderFilterToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TinderFilterToggle.swift; sourceTree = "<group>"; };
 		7C35D106F301F5D59426F4A8 /* SuccessfulExportDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessfulExportDialog.swift; sourceTree = "<group>"; };
-		8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSaver.swift; sourceTree = "<group>"; };
 		92565594FBA059EB36D71F46 /* CursorStatsTool-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "CursorStatsTool-Info.plist"; sourceTree = "<group>"; };
 		A10DC1AD682AEDF259557667 /* HighLevelStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighLevelStatsView.swift; sourceTree = "<group>"; };
 		B3AD82485E1AAC4819658626 /* CSVExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExporter.swift; sourceTree = "<group>"; };
 		C2CFA0F7BE62F14E80D4BDDC /* CSVDropArea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVDropArea.swift; sourceTree = "<group>"; };
+		C7E87506A189F496F8981575 /* CSVExportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExportCoordinator.swift; sourceTree = "<group>"; };
 		D7A7489F80BDB8A47EE8B7C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEBFC44EE29DB5B50EE2B358 /* TuistAssets+CursorStatsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+CursorStatsTool.swift"; sourceTree = "<group>"; };
 		DFC70D3AC2B44E96B3CD11C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F2ABC2BD2B58923254C9037C /* CSVExportPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CSVExportPanel.swift; sourceTree = "<group>"; };
 		FC4070D3A9AFBDD4468EC7EE /* TuistBundle+CursorStatsTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+CursorStatsTool.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,11 +92,12 @@
 		5CCB8CF07E70115C8C7D1E20 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C7E87506A189F496F8981575 /* CSVExportCoordinator.swift */,
 				B3AD82485E1AAC4819658626 /* CSVExporter.swift */,
+				F2ABC2BD2B58923254C9037C /* CSVExportPanel.swift */,
 				4CFCF1F4916A5A05F2E588E5 /* CSVParser.swift */,
 				6BC0C0380206D6D74CE9267E /* CSVRow.swift */,
 				0077925EF277C4012CA13AD1 /* EmailDomain.swift */,
-				8EE585ADB8C7351B40A15DD4 /* FileSaver.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,11 +226,12 @@
 			files = (
 				519E98350D9D135E6B36461B /* ContentView.swift in Sources */,
 				ECC7F131F987BE860EE53524 /* CursorStatsToolApp.swift in Sources */,
+				E52963521C9C7328FE13DA40 /* CSVExportCoordinator.swift in Sources */,
+				DB826C4CE7F446B853B413C2 /* CSVExportPanel.swift in Sources */,
 				543C051AAFE842DFBBA39834 /* CSVExporter.swift in Sources */,
 				611D22370334CA5879735F4A /* CSVParser.swift in Sources */,
 				0E1815B682805436CD605E4E /* CSVRow.swift in Sources */,
 				2991A6DAC50075A345C84D54 /* EmailDomain.swift in Sources */,
-				B5A853E64F98DA19394F56CE /* FileSaver.swift in Sources */,
 				54A754384C4B17740CF61286 /* CSVDropArea.swift in Sources */,
 				505A3FFE64445C6B193B5789 /* HighLevelStatsView.swift in Sources */,
 				71A06759241DB34996EA998A /* SuccessfulExportDialog.swift in Sources */,

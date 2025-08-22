@@ -26,13 +26,7 @@ struct CSVRow {
         let tabExtension = tabExtensionIndex.flatMap { index in
             index < values.count ? values[index] : nil
         } ?? ""
-        if ext == "kotlin" {
-            // Android: match both 'kotlin' and 'kt'
-            let androidExts = ["kotlin", "kt"]
-            return androidExts.contains(applyExtension.lowercased()) || androidExts.contains(tabExtension.lowercased())
-        } else {
-            return applyExtension.lowercased() == ext || tabExtension.lowercased() == ext
-        }
+        return applyExtension.lowercased() == ext || tabExtension.lowercased() == ext
     }
 
     var isSwiftExtension: Bool {
@@ -50,7 +44,5 @@ struct CSVRow {
         return applyExtension.lowercased() == "swift" || tabExtension.lowercased() == "swift"
     }
     
-    var isKotlinExtension: Bool {
-        return matchesExtension("kotlin")
-    }
+    // Android/Kotlin support removed
 }

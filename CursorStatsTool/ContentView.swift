@@ -163,8 +163,8 @@ struct ContentView: View {
     }
 
     private func exportData() {
-        let fileSaver = FileSaver()
-        if let filePaths = fileSaver.exportCSVData(
+        let exportPanel = CSVExportPanel()
+        if let filePaths = exportPanel.exportCSVData(
             csvData,
             filterDomain: selectedEmailDomain
         ) {
